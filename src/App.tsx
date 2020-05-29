@@ -6,6 +6,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { getSelectedLanguage } from "./store/general/selectors";
 import routes from "./router";
+import { AppLanguages } from "./helpers/constants/languages";
+
+import catalogCs from "./plugins/locales/cs/messages";
+import catalogEn from "./plugins/locales/en/messages";
+
+const catalogs: { [key in AppLanguages]: any } = {
+  cs: catalogCs,
+  en: catalogEn,
+};
 
 function App(): JSX.Element {
   const language = useSelector(getSelectedLanguage);
@@ -16,7 +25,7 @@ function App(): JSX.Element {
 
   return (
     <Suspense fallback={renderLoading("Aplikace se nacita")}>
-      <I18nProvider language={language}>
+      <I18nProvider language={language} catalogs={catalogs}>
         <Router>
           <div>
             <nav>
