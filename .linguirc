@@ -1,0 +1,6 @@
+{
+   "localeDir": "src/plugins/locales/",
+   "srcPathDirs": ["src/"],
+   "format": "minimal",
+   "sourceLocale": "en"
+}
