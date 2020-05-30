@@ -61,6 +61,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notum-cz/cra-template-notum-react.git"
+  },
   "main ":  "template.json",
   "files": ["template", "template.json"],
   "browserslist": {
