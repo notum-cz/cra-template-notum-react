@@ -1,7 +1,6 @@
 {
   "name": "cra-template-notum-material-ui",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@babel/core": "^7.10.1",
     "@emotion/core": "^10.0.28",
@@ -56,7 +55,7 @@
     "duplicity": "jscpd --ignore '**/*.min.js,**/*.map' ./src",
     "clean-files": "rm -rf ./template/public ./template/src && rm -f ./template/.eslintrc",
     "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .eslintrc template/",
-    "prepublishOnly": "npm clean-files && npm copy-files"
+    "prepublishOnly": "npm run clean-files && npm run copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
