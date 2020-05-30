@@ -53,11 +53,16 @@
     "add-locale": "lingui add-locale",
     "extract": "lingui extract",
     "compile": "lingui compile",
-    "duplicity": "jscpd --ignore '**/*.min.js,**/*.map' ./src"
+    "duplicity": "jscpd --ignore '**/*.min.js,**/*.map' ./src",
+    "clean-files": "rm -rf ./template/public ./template/src && rm -f ./template/.eslintrc",
+    "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .eslintrc template/",
+    "prepublishOnly": "npm clean-files && npm copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "main ":  "template.json",
+  "files": ["template", "template.json"],
   "browserslist": {
     "production": [
       ">0.2%",
