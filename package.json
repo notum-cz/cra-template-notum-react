@@ -1,47 +1,6 @@
 {
-  "name": "cra-template-notum-material-ui",
+  "name": "@notum-cz/cra-template-notum-material-ui",
   "version": "0.1.0",
-  "dependencies": {
-    "@babel/core": "^7.10.1",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "@lingui/core": "^2.9.1",
-    "@lingui/react": "^2.9.1",
-    "@material-ui/core": "^4.10.0",
-    "@material-ui/icons": "^4.9.1",
-    "@notum-cz/eslint-config-notum-react": "^1.2.0",
-    "@sentry/browser": "^5.15.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/lingui__macro": "^2.7.3",
-    "@types/lingui__react": "^2.8.2",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux-logger": "^3.0.7",
-    "babel-core": "^7.0.0-bridge.0",
-    "immer": "^6.0.9",
-    "jscpd": "^3.3.0-rc.6",
-    "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-hook-form": "^5.7.2",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "ts-action": "^11.0.0",
-    "ts-action-immer": "^3.0.2",
-    "typescript": "~3.7.2",
-    "use-immer": "^0.4.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -64,8 +23,11 @@
     "type": "git",
     "url": "https://github.com/notum-cz/cra-template-notum-react.git"
   },
-  "main ":  "template.json",
-  "files": ["template", "template.json"],
+  "main": "template.json",
+  "files": [
+    "template",
+    "template.json"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -77,9 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@lingui/cli": "^2.9.1",
-    "@lingui/macro": "^2.9.1"
   }
 }
