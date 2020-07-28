@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import * as Sentry from "@sentry/browser";
+import * as Sentry from "@sentry/react";
 import { Provider } from "react-redux";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 
 if (process.env.NODE_ENV === "production") {
-  Sentry.init({ dsn: process.env.SENTRY_DNS });
+  Sentry.init({ dsn: process.env.REACT_APP_SENTRY_DNS });
 }
 
 ReactDOM.render(
