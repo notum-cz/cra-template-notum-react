@@ -1,7 +1,7 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import { I18nProvider } from "@lingui/react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import * as Sentry from "@sentry/react";
@@ -12,6 +12,8 @@ import catalogCs from "./plugins/locales/cs/messages";
 import catalogEn from "./plugins/locales/en/messages";
 import { ErrorFallback } from "./ErrorFallback";
 
+// Because catalogs are .js file and have no typings.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const catalogs: { [key in AppLanguages]: any } = {
   cs: catalogCs,
   en: catalogEn,

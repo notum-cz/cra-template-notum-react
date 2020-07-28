@@ -11,7 +11,7 @@ export const http = axios.create({
  * @param doneCallback what to do with the response
  * @param payload API call payload
  */
-export const makeServerCallAsync = async <T = any, R = any>(
+export const makeServerCallAsync = async <T = unknown, R = unknown>(
   method: Method,
   url: string,
   payload?: T

@@ -1,7 +1,8 @@
+/* eslint-disable complexity */
+/* eslint-disable max-params */
 import { Action, Dispatch } from "redux";
 import * as Sentry from "@sentry/browser";
 
-import { stat } from "fs";
 import { ActionTypes } from "../../store/actionTypes";
 import { RequestState } from "../enums/RequestState";
 import { setRequestState } from "../../store/requestState/actions";
@@ -15,6 +16,14 @@ interface ErrorRequestOption {
 
 const errorDefaultOptions: ErrorRequestOption = {
   sentryCapture: true,
+};
+
+const getStrapiErrorMessage = (id: string): string | undefined => {
+  if (id in strapiErrors) {
+    return strapiErrors[id];
+  }
+
+  return undefined;
 };
 
 export const baseAsyncRequest = async <T>(
@@ -70,10 +79,13 @@ export const baseAsyncRequest = async <T>(
 
       if (!errorMessage) {
         errorMessage = DEFAULT_ERROR_MESSAGE;
-        console.warn(
-          "[MISSING ERROR MAPPING]",
-          `Please provide mapping for "${errorId}" error in strapiErrors.ts`
-        );
+        if (process.env.NODE_ENV !== "production") {
+          // eslint-disable-next-line no-console
+          console.warn(
+            "[MISSING ERROR MAPPING]",
+            `Please provide mapping for "${errorId}" error in strapiErrors.ts`
+          );
+        }
       }
 
       dispatch(
@@ -89,11 +101,3 @@ export const baseAsyncRequest = async <T>(
     return undefined;
   }
 };
-
-function getStrapiErrorMessage(id: string): string | undefined {
-  if (id in strapiErrors) {
-    return strapiErrors[id];
-  }
-
-  return undefined;
-}

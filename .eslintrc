@@ -1,34 +1,6 @@
 {
     "root": true,
     "extends": "@notum-cz/eslint-config-notum-react/hooks",
-    "rules": {
-      "no-console": "off",
-      "prettier/prettier": "error",
-      "no-param-reassign": [
-        "error",
-        {
-          "props": true,
-          "ignorePropertyModificationsFor": [
-            "state",
-            "acc",
-            "e",
-            "ctx",
-            "req",
-            "request",
-            "res",
-            "response",
-            "$scope",
-            "registration"
-          ]
-        }
-      ],
-      "@typescript-eslint/camelcase": "off",
-      "@typescript-eslint/ban-ts-ignore": "off",
-      "no-alert": "off",
-      "@typescript-eslint/no-use-before-define": "off",
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      "no-shadow": "off"
-    },
     "overrides": [
       {
         "files": ["**/store/**/*.ts"],
