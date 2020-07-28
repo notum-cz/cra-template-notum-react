@@ -4,12 +4,13 @@ import { I18nProvider } from "@lingui/react";
 import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import * as Sentry from "@sentry/react";
 import { getSelectedLanguage } from "./store/general/selectors";
 import routes from "./router";
 import { AppLanguages } from "./helpers/constants/languages";
-
 import catalogCs from "./plugins/locales/cs/messages";
 import catalogEn from "./plugins/locales/en/messages";
+import { ErrorFallback } from "./ErrorFallback";
 
 const catalogs: { [key in AppLanguages]: any } = {
   cs: catalogCs,
@@ -24,32 +25,34 @@ function App(): JSX.Element {
   };
 
   return (
-    <Suspense fallback={renderLoading("Aplikace se nacita")}>
-      <I18nProvider language={language} catalogs={catalogs}>
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-              </ul>
-            </nav>
+    <Sentry.ErrorBoundary fallback={ErrorFallback} showDialog>
+      <Suspense fallback={renderLoading("Aplikace se nacita")}>
+        <I18nProvider language={language} catalogs={catalogs}>
+          <Router>
+            <div>
+              <nav>
+                <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                </ul>
+              </nav>
 
-            {/* A <Switch> looks through its children <Route>s and
+              {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-            <Switch>
-              {routes.map((route) => (
-                <Route key={route.path} path={route.path} {...route.props} />
-              ))}
-            </Switch>
-          </div>
-        </Router>
-      </I18nProvider>
-    </Suspense>
+              <Switch>
+                {routes.map((route) => (
+                  <Route key={route.path} path={route.path} {...route.props} />
+                ))}
+              </Switch>
+            </div>
+          </Router>
+        </I18nProvider>
+      </Suspense>
+    </Sentry.ErrorBoundary>
   );
 }
 
