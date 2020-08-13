@@ -12,6 +12,8 @@ import catalogCs from "./plugins/locales/cs/messages";
 import catalogEn from "./plugins/locales/en/messages";
 import { ErrorFallback } from "./ErrorFallback";
 
+// Because catalogs are .js file and have no typings.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const catalogs: { [key in AppLanguages]: any } = {
   cs: catalogCs,
   en: catalogEn,
